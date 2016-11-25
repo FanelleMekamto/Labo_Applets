@@ -9,16 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.club.labo_applets.R;
-
 import java.util.List;
 
 /**
  * Created by club on 2016-11-11.
  */
 
-public class ClubAdapter extends ArrayAdapter<Clubs> {
-    public ClubAdapter(Context context,int ressource, List<Clubs> clubs) {
+public class ClubAdapter extends ArrayAdapter<Club> {
+    public ClubAdapter(Context context,List<Club> clubs) {
         super(context, 0, clubs);
     }
 
@@ -39,12 +37,12 @@ public class ClubAdapter extends ArrayAdapter<Clubs> {
         }
 
         //getItem(position) va récupérer l'item [position] de la List<Tweet> tweets
-        Clubs clubs = getItem(position);
+        Club club = getItem(position);
 
         //il ne reste plus qu'à remplir notre vue
-        viewHolder.nom.setText(clubs.getNom());
-        viewHolder.local.setText(clubs.getLocal());
-        viewHolder.logo.setImageDrawable(new ColorDrawable(clubs.getColor()));
+        viewHolder.nom.setText(club.getNom());
+        viewHolder.local.setText(club.getLocal());
+        viewHolder.logo.setImageDrawable(new ColorDrawable(club.getColor()));
 
         return convertView;
     }
