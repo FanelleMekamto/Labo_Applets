@@ -2,6 +2,7 @@ package com.example.club.labo_applets;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,17 @@ import java.util.List;
  */
 
 public class ClubAdapter extends ArrayAdapter<Club> {
+
+    List<Club> clubs;
     public ClubAdapter(Context context,List<Club> clubs) {
         super(context, 0, clubs);
+        this.clubs=clubs;
+    }
+
+    @Nullable
+    @Override
+    public Club getItem(int position) {
+        return clubs.get(position);
     }
 
     @Override
@@ -33,16 +43,17 @@ public class ClubAdapter extends ArrayAdapter<Club> {
             viewHolder.nom = (TextView) convertView.findViewById(R.id.nom);
             viewHolder.local = (TextView) convertView.findViewById(R.id.local);
             viewHolder.logo = (ImageView) convertView.findViewById(R.id.logo);
+            viewHolder.site = (TextView) convertView.findViewById(R.id.site);
             convertView.setTag(viewHolder);
         }
 
         //getItem(position) va récupérer l'item [position] de la List<Tweet> tweets
-        Club club = getItem(position);
+        Club club = clubs.get(position);
 
         //il ne reste plus qu'à remplir notre vue
         viewHolder.nom.setText(club.getNom());
         viewHolder.local.setText(club.getLocal());
-        viewHolder.logo.setImageDrawable(new ColorDrawable(club.getColor()));
+        viewHolder.logo.setImageResource(club.getIcone());
 
         return convertView;
     }
@@ -51,5 +62,6 @@ public class ClubAdapter extends ArrayAdapter<Club> {
         public TextView local;
         public ImageView logo;
         public TextView nom;
+        public TextView site;
     }
 }

@@ -10,7 +10,6 @@
         android:id="@+id/logo"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        tools:background="#AAA"
         />
 
     <TextView
@@ -35,5 +34,14 @@
         tools:text="Local"
         />
 
+    <TextView
+        android:id="@+id/site"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_alignLeft="@+id/local"
+        android:layout_below="@+id/local"
+        tools:text="site"
+        />
 
 </RelativeLayout>
