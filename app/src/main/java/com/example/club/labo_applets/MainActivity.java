@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
     ListView mListView;
-    //String[] nomsClubs=new String[]{"Applets","DronoLab","Conjure","Pirhana"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
